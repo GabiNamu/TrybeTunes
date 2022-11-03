@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { createUser } from '../services/userAPI';
-import Loding from './Loding';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
       name: '',
-      loading: false,
+      loading: true,
+      load: undefined,
     };
   }
+
+  // componentDidUpdate() {
+  //   const { loading } = this.state;
+  //   console.log(loading);
+  // }
 
   handleChange = ({ target }) => {
     const { name } = target;
@@ -19,25 +24,33 @@ class Login extends Component {
     });
   };
 
+  isLoading = () => {
+    const { loading } = this.state;
+    if (loading === true) {
+      this.setState({
+        load: 'carregando...',
+      });
+    } else {
+      this.setState({
+        load: undefined,
+      });
+    }
+  };
+
   SaveUserName = async () => {
     const { name } = this.state;
-    this.setState = {
-      loading: true,
-    };
+    this.isLoading();
     const response = await createUser({ name });
     console.log(response);
-    this.setState = {
+    this.setState = ({
       loading: false,
-    };
+    });
+    this.isLoading();
   };
 
   render() {
-    const { name, loading } = this.state;
+    const { name, load } = this.state;
     const number = 3;
-    if (loading === true) {
-      console.log('entrei');
-      return <Loding />;
-    }
     return (
       <div data-testid="page-login">
         <h1>Login</h1>
@@ -50,6 +63,7 @@ class Login extends Component {
             value={ name }
             onChange={ this.handleChange }
           />
+          <p>{ load }</p>
           <button
             type="button"
             disabled={ name.length < number }
