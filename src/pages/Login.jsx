@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loding from './Loding';
 
@@ -21,7 +20,7 @@ class Login extends Component {
   };
 
   SaveUserName = async () => {
-    const { name, loading } = this.state;
+    const { name } = this.state;
     this.setState = {
       loading: true,
     };
@@ -30,24 +29,15 @@ class Login extends Component {
     this.setState = {
       loading: false,
     };
-    return response;
   };
-
-//   redirectPage = async () => {
-//     const func = await this.SaveUserName();
-//     if (func === 'OK') {
-//       return <Redirect to="/search" />;
-//     }
-//     return <h2>hi</h2>;
-//   };
 
   render() {
     const { name, loading } = this.state;
     const number = 3;
     if (loading === true) {
-        console.log('entrei');
-        return <h1>Carregando ...</h1>;
-      }
+      console.log('entrei');
+      return <Loding />;
+    }
     return (
       <div data-testid="page-login">
         <h1>Login</h1>
