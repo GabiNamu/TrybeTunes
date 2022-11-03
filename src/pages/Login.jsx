@@ -1,78 +1,66 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
+import Loding from './Loding';
 
 class Login extends Component {
   constructor() {
     super();
     this.state = {
       name: '',
-      loading: true,
-      load: undefined,
+      loading: false,
+      redirect: false,
     };
   }
 
-  // componentDidUpdate() {
-  //   const { loading } = this.state;
-  //   console.log(loading);
-  // }
-
   handleChange = ({ target }) => {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
   };
 
-  isLoading = () => {
-    const { loading } = this.state;
-    if (loading === true) {
-      this.setState({
-        load: 'carregando...',
-      });
-    } else {
-      this.setState({
-        load: undefined,
-      });
-    }
-  };
-
   SaveUserName = async () => {
     const { name } = this.state;
-    this.isLoading();
-    const response = await createUser({ name });
-    console.log(response);
-    this.setState = ({
-      loading: false,
+    this.setState({
+      loading: true,
     });
-    this.isLoading();
+    const response = await createUser({ name });
+    this.setState({
+      redirect: true,
+    });
+    console.log(response);
   };
 
   render() {
-    const { name, load } = this.state;
+    const { name, loading, redirect } = this.state;
     const number = 3;
+    if (redirect === true) {
+      return <Redirect to="/search" />;
+    }
     return (
       <div data-testid="page-login">
         <h1>Login</h1>
-        <form action="">
-          <input
-            type="text"
-            placeholder="Nome"
-            data-testid="login-name-input"
-            name="name"
-            value={ name }
-            onChange={ this.handleChange }
-          />
-          <p>{ load }</p>
-          <button
-            type="button"
-            disabled={ name.length < number }
-            data-testid="login-submit-button"
-            onClick={ this.SaveUserName }
-          >
-            Entrar
-          </button>
-        </form>
+        { loading ? <Loding />
+          : (
+            <form action="">
+              <input
+                type="text"
+                placeholder="Nome"
+                data-testid="login-name-input"
+                name="name"
+                value={ name }
+                onChange={ this.handleChange }
+              />
+              <button
+                type="button"
+                disabled={ name.length < number }
+                data-testid="login-submit-button"
+                onClick={ this.SaveUserName }
+              >
+                Entrar
+              </button>
+            </form>)}
       </div>
     );
   }
