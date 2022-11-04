@@ -3,23 +3,37 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
+import { addSong } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   state = {
     musics: [],
+    favorite: false,
   };
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const response = await getMusics(id);
-    response.shift();
+    // const fave = await getFavoriteSongs();
+    // const onlySongs = response.filter((song) => song.wrapperType === 'track');
+    console.log(response);
+    // console.log(onlySongs);
     this.setState({
       musics: response,
     });
   }
 
+  saveFavoriteSongs = async (song) => {
+    // const { name, checked } = event.target;
+    // this.setState({
+    //   favorite: checked,
+    // });
+    const response = await addSong(song);
+    return response;
+  };
+
   render() {
-    const { musics } = this.state;
+    const { musics, favorite } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -32,11 +46,13 @@ class Album extends Component {
         </h3>
         <ul>
           {musics.length !== 0
-          && musics.map((song) => (
+          && musics.filter((music) => music.trackName).map((song) => (
             <div key={ song.trackId }>
               <li>
                 <MusicCard
                   song={ song }
+                  favorite={ favorite }
+                  saveFavoriteSongs={ () => this.saveFavoriteSongs(song) }
                   name={ song.trackName }
                   music={ song.previewUrl }
                   id={ song.trackId }
