@@ -33,6 +33,8 @@ MusicCard.propTypes = {
   name: PropTypes.string.isRequired,
   music: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  saveFavoriteSongs: PropTypes.func.isRequired,
+  check: PropTypes.bool.isRequired,
 };
 
 export default MusicCard;
