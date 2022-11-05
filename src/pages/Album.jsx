@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loding from './Loding';
 
 class Album extends Component {
@@ -22,24 +22,26 @@ class Album extends Component {
     this.getSavedFavoriteSongs();
   }
 
-  isChecked = (song) => {
-    const { musics } = this.state;
-    const a = musics.findIndex((element) => element.trackId === song.trackId);
-    console.log(musics[a]);
-    if (musics[a].checked === undefined || musics[a].checked === false) {
-      musics[a].checked = true;
-      return musics[a].checked;
-    }
-    musics[a].checked = false;
-    return musics[a].checked;
-  };
+  // componentDidUpdate() {
+  //   const { loading } = this.state;
+  //   if (loading === false) {
+  //     this.getSavedFavoriteSongs();
+  //   }
+  // }
 
   saveFavoriteSongs = async (song) => {
-    this.isChecked(song);
+    const { musics } = this.state;
     this.setState({
       loading: true,
     });
-    await addSong(song);
+    const a = musics.findIndex((element) => element.trackId === song.trackId);
+    if (musics[a].checked === true) {
+      await removeSong(song);
+      musics[a].checked = false;
+    } else {
+      musics[a].checked = true;
+      await addSong(song);
+    }
     this.setState({
       loading: false,
     });
@@ -51,15 +53,21 @@ class Album extends Component {
     });
     const response = await getFavoriteSongs();
     const array = [];
+    const negative = -1;
     const { musics } = this.state;
     response.forEach((song) => {
       const all = musics.findIndex((element) => element.trackId === song.trackId);
-      array.push(all);
+      if (all !== negative) {
+        array.push(all);
+      }
     });
-    array.forEach((number) => {
-      musics[number].checked = true;
-      return musics[number].checked;
-    });
+    console.log(array);
+    if (array.length !== 0) {
+      array.forEach((number) => {
+        musics[number].checked = true;
+        return musics[number].checked;
+      });
+    }
     this.setState({
       loading: false,
     });
@@ -88,7 +96,7 @@ class Album extends Component {
                 <MusicCard
                   song={ song }
                   favorite={ favorite }
-                  saveFavoriteSongs={ () => this.saveFavoriteSongs(song) }
+                  change={ () => this.saveFavoriteSongs(song) }
                   name={ song.trackName }
                   check={ song.checked }
                   music={ song.previewUrl }

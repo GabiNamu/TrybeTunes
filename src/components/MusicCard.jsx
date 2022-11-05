@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class MusicCard extends Component {
   render() {
-    const { name, music, id, saveFavoriteSongs, check } = this.props;
+    const { name, music, id, change, check } = this.props;
     return (
       <div>
         <p>{ name }</p>
@@ -21,7 +21,7 @@ class MusicCard extends Component {
             name="favorite"
             id={ id }
             checked={ check }
-            onChange={ saveFavoriteSongs }
+            onChange={ change }
           />
         </label>
       </div>
@@ -33,7 +33,7 @@ MusicCard.propTypes = {
   name: PropTypes.string.isRequired,
   music: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  saveFavoriteSongs: PropTypes.func.isRequired,
+  change: PropTypes.func.isRequired,
   check: PropTypes.bool.isRequired,
 };
 
