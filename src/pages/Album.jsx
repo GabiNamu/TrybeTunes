@@ -3,37 +3,73 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import Loding from './Loding';
 
 class Album extends Component {
   state = {
     musics: [],
+    loading: false,
     favorite: false,
   };
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const response = await getMusics(id);
-    // const fave = await getFavoriteSongs();
-    // const onlySongs = response.filter((song) => song.wrapperType === 'track');
-    console.log(response);
-    // console.log(onlySongs);
     this.setState({
       musics: response,
     });
+    this.getSavedFavoriteSongs();
   }
 
+  isChecked = (song) => {
+    const { musics } = this.state;
+    const a = musics.findIndex((element) => element.trackId === song.trackId);
+    console.log(musics[a]);
+    if (musics[a].checked === undefined || musics[a].checked === false) {
+      musics[a].checked = true;
+      return musics[a].checked;
+    }
+    musics[a].checked = false;
+    return musics[a].checked;
+  };
+
   saveFavoriteSongs = async (song) => {
-    // const { name, checked } = event.target;
-    // this.setState({
-    //   favorite: checked,
-    // });
-    const response = await addSong(song);
-    return response;
+    this.isChecked(song);
+    this.setState({
+      loading: true,
+    });
+    await addSong(song);
+    this.setState({
+      loading: false,
+    });
+  };
+
+  getSavedFavoriteSongs = async () => {
+    this.setState({
+      loading: true,
+    });
+    const response = await getFavoriteSongs();
+    const array = [];
+    const { musics } = this.state;
+    response.forEach((song) => {
+      const all = musics.findIndex((element) => element.trackId === song.trackId);
+      array.push(all);
+    });
+    array.forEach((number) => {
+      musics[number].checked = true;
+      return musics[number].checked;
+    });
+    this.setState({
+      loading: false,
+    });
   };
 
   render() {
-    const { musics, favorite } = this.state;
+    const { musics, favorite, loading } = this.state;
+    if (loading === true) {
+      return <Loding />;
+    }
     return (
       <div data-testid="page-album">
         <Header />
@@ -54,6 +90,7 @@ class Album extends Component {
                   favorite={ favorite }
                   saveFavoriteSongs={ () => this.saveFavoriteSongs(song) }
                   name={ song.trackName }
+                  check={ song.checked }
                   music={ song.previewUrl }
                   id={ song.trackId }
                 />
