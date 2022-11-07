@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loding from '../pages/Loding';
 import { getUser } from '../services/userAPI';
+import '../css/header.css';
 
 class Header extends Component {
   state = {
@@ -27,14 +28,32 @@ class Header extends Component {
       return <Loding />;
     }
     return (
-      <header data-testid="header-component">
-        <h3 data-testid="header-user-name">{ name.name }</h3>
-        <nav>
-          <Link to="/search" data-testid="link-to-search">Search</Link>
-          <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-          <Link to="/profile" data-testid="link-to-profile">Profile</Link>
-
+      <header data-testid="header-component" className="container-header">
+        <h3 className="title-header">TrybeTunes</h3>
+        <nav className="nav">
+          <Link
+            to="/search"
+            data-testid="link-to-search"
+            className="link-header"
+          >
+            Search
+          </Link>
+          <Link
+            to="/favorites"
+            data-testid="link-to-favorites"
+            className="link-header"
+          >
+            Favorites
+          </Link>
+          <Link
+            to="/profile"
+            data-testid="link-to-profile"
+            className="link-header"
+          >
+            Profile
+          </Link>
         </nav>
+        <h3 data-testid="header-user-name" className="user-header">{ name.name }</h3>
       </header>
     );
   }

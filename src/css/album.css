@@ -1,0 +1,7 @@
+.container-musics {
+  display: flex;
+}
+
+.li-album {
+  list-style: none;
+}

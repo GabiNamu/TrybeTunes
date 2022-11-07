@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../css/musicCard.css';
 
 class MusicCard extends Component {
   render() {
     const { name, music, id, change, check } = this.props;
     return (
-      <div>
+      <div className="container-musicCard">
         <p>{ name }</p>
         <audio data-testid="audio-component" src={ music } controls>
           <track kind="captions" />

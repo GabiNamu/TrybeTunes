@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loding from './Loding';
+import '../css/favorites.css';
 
 class Favorites extends Component {
   state = {
@@ -43,13 +44,13 @@ class Favorites extends Component {
       return <Loding />;
     }
     return (
-      <div data-testid="page-favorites">
+      <div data-testid="page-favorites" className="container-favorites">
         <Header />
         { listFavorites.length !== 0
         && (
           <ul>
             {listFavorites.map((song) => (
-              <li key={ song.trackId }>
+              <li key={ song.trackId } className="li-favorites">
                 <MusicCard
                   song={ song }
                   name={ song.trackName }

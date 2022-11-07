@@ -5,6 +5,7 @@ import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loding from './Loding';
+import '../css/album.css';
 
 class Album extends Component {
   state = {
@@ -16,31 +17,38 @@ class Album extends Component {
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const response = await getMusics(id);
+    console.log(response);
+    const arrayMusics = response.map((music) => (
+      { ...music, checked: false }
+    ));
     this.setState({
-      musics: response,
+      musics: arrayMusics,
+      loading: true,
     });
     this.getSavedFavoriteSongs();
   }
 
-  // componentDidUpdate() {
-  //   const { loading } = this.state;
-  //   if (loading === false) {
-  //     this.getSavedFavoriteSongs();
-  //   }
-  // }
-
   saveFavoriteSongs = async (song) => {
     const { musics } = this.state;
+    const newMusics = musics.map((music) => {
+      if (music.trackId === song.trackId) {
+        if (music.checked) {
+          music.checked = false;
+        } else {
+          music.checked = true;
+        }
+      }
+      return music;
+    });
+
     this.setState({
       loading: true,
+      musics: newMusics,
     });
-    const a = musics.findIndex((element) => element.trackId === song.trackId);
-    if (musics[a].checked === true) {
-      await removeSong(song);
-      musics[a].checked = false;
-    } else {
-      musics[a].checked = true;
+    if (song.checked) {
       await addSong(song);
+    } else {
+      await removeSong(song);
     }
     this.setState({
       loading: false,
@@ -48,63 +56,55 @@ class Album extends Component {
   };
 
   getSavedFavoriteSongs = async () => {
-    this.setState({
-      loading: true,
-    });
     const response = await getFavoriteSongs();
-    const array = [];
-    const negative = -1;
     const { musics } = this.state;
-    response.forEach((song) => {
-      const all = musics.findIndex((element) => element.trackId === song.trackId);
-      if (all !== negative) {
-        array.push(all);
-      }
-    });
-    console.log(array);
-    if (array.length !== 0) {
-      array.forEach((number) => {
-        musics[number].checked = true;
-        return musics[number].checked;
+    musics.map((music) => {
+      response.forEach((element) => {
+        if (element.trackId === music.trackId) {
+          music.checked = true;
+        }
       });
-    }
+      return music;
+    });
+
     this.setState({
       loading: false,
+      musics,
     });
   };
 
   render() {
     const { musics, favorite, loading } = this.state;
-    if (loading === true) {
-      return <Loding />;
-    }
     return (
-      <div data-testid="page-album">
+      <div data-testid="page-album" className="container-musics">
         <Header />
         <h1 data-testid="artist-name">
           { musics.length !== 0 && musics[0].artistName }
         </h1>
 
         <h3 data-testid="album-name">
-          {musics.length !== 0 && musics[0].collectionName }
+          { musics.length !== 0 && musics[0].collectionName }
         </h3>
         <ul>
-          {musics.length !== 0
-          && musics.filter((music) => music.trackName).map((song) => (
-            <div key={ song.trackId }>
-              <li>
-                <MusicCard
-                  song={ song }
-                  favorite={ favorite }
-                  change={ () => this.saveFavoriteSongs(song) }
-                  name={ song.trackName }
-                  check={ song.checked }
-                  music={ song.previewUrl }
-                  id={ song.trackId }
-                />
-              </li>
-            </div>
-          ))}
+          {loading ? <Loding />
+            : (
+              musics.length !== 0
+              && musics.filter((music) => music.trackName).map((song) => (
+                <div key={ song.trackId }>
+
+                  <li className="li-album">
+                    <MusicCard
+                      song={ song }
+                      favorite={ favorite }
+                      change={ () => this.saveFavoriteSongs(song) }
+                      name={ song.trackName }
+                      check={ song.checked }
+                      music={ song.previewUrl }
+                      id={ song.trackId }
+                    />
+                  </li>
+                </div>
+              )))}
         </ul>
       </div>
     );

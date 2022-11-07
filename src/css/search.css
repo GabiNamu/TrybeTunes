@@ -1,0 +1,39 @@
+.container-search {
+  display: flex;
+}
+
+.container-album {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 200px;
+}
+
+.img-search {
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(172, 181, 200, 0.938);
+  height: 150px;
+}
+
+.album-search {
+  display: flex;
+  flex: column wrap;
+  width: 150px;
+}
+
+.box-search {
+  display: flex;
+}
+
+.form-search {
+  display: block;
+  margin-left: 300px;
+  position: absolute;
+}
+
+.title-search {
+  display: block;
+  margin-left: 100px;
+  position: relative;
+}
