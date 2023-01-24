@@ -1,0 +1,87 @@
+.page-profile-edit {
+  display: flex;
+}
+
+.form-profileEdit {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-profileEdit {
+  border-radius: 240px;
+  filter: drop-shadow(-9px 8px 8px rgba(0, 0, 0, 0.2));
+  height: 240px;
+  margin-left: 100px;
+  margin-top: 100px;
+  width: 240px;
+}
+
+.container-img-profileEdit {
+  background-color: white;
+  box-shadow: 0 0 4px rgba(172, 181, 200, 0.938);
+  height: 200px;
+  left: 250px;
+  top: 0;
+  width: 1200px;
+}
+
+.input-img-profileEdit {
+  border: 1px solid #444955;
+  border-radius: 2px;
+  height: 37px;
+  margin-left: 120px;
+  margin-top: 160px;
+  width: 192px;
+}
+
+.input-profileEdit {
+  display: flex;
+  flex-direction: column;
+  margin-left: 400px;
+  margin-top: 280px;
+  position: absolute;
+}
+
+.textarea-profileEdit {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-profileEdit {
+  color: #3d495c;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 150%;
+  margin-top: 10px;
+}
+
+.p-profileEdit {
+  color: #3d495c;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.inputs-profileEdit {
+  border: 0;
+  border-bottom: 1px solid #3d495c;
+  border-radius: 2px;
+  height: 37px;
+  width: 288px;
+}
+
+.input-textarea-profileEdit {
+  border: 0;
+  border-bottom: 1px solid #3d495c;
+  border-radius: 2px;
+  height: 90px;
+  width: 350px;
+}
+
+.button-save-profileEdit {
+  background: #003be5;
+  border-radius: 100px;
+  height: 40px;
+  margin-top: 20px;
+  width: 152px;
+}

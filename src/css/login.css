@@ -1,6 +1,20 @@
 body {
-  background-color: rgb(21, 20, 20);
+  background-color: #eff3f9;
+  box-sizing: border-box;
   font-family: Arial , Helvetica , sans-serif;
+  margin: 0%;
+  padding: 0%;
+}
+
+.logo-login {
+  margin-bottom: 20px;
+}
+
+.container-background-login {
+  display: flex;
+  height: 100vh;
+  margin-top: 0%;
+  width: 100%;
 }
 
 .container {
@@ -29,8 +43,18 @@ body {
   background-color: white;
   border: 1px solid rgb(0, 59, 229);
   border-radius: 100px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
   height: 40px;
+  line-height: 14px;
+  text-align: center;
   width: 400px;
+
+}
+
+.input::placeholder {
+  color: #003be5;
 }
 
 .button {

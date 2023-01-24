@@ -1,3 +1,12 @@
 .container-musicCard {
-  color: white;
+  align-items: center;
+  color: black;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.audio {
+  background-color: white;
 }

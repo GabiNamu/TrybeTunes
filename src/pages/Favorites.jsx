@@ -40,29 +40,41 @@ class Favorites extends Component {
 
   render() {
     const { loading, listFavorites } = this.state;
-    if (loading === true) {
-      return <Loding />;
-    }
+    // if (loading === true) {
+    //   return <Loding />;
+    // }
     return (
       <div data-testid="page-favorites" className="container-favorites">
         <Header />
-        { listFavorites.length !== 0
-        && (
-          <ul>
-            {listFavorites.map((song) => (
-              <li key={ song.trackId } className="li-favorites">
-                <MusicCard
-                  song={ song }
-                  name={ song.trackName }
-                  checked={ song.checked }
-                  change={ () => this.handleChange(song) }
-                  check={ song.checked }
-                  music={ song.previewUrl }
-                  id={ song.trackId }
-                />
-              </li>
-            ))}
-          </ul>)}
+        <div className="h1-ul">
+          <div className="container-h1">
+            <h1 className="h1-favorites">Músicas Favoritas</h1>
+          </div>
+          {listFavorites.length !== 0
+            && (
+              <ul className="ul-favorites">
+                {listFavorites.map((song) => (
+                  <div key={ song.trackId }>
+                    <div className="musics-album">
+                      <li className="li-album">
+                        { loading === true ? <Loding /> : (
+                          <MusicCard
+                            song={ song }
+                            name={ song.trackName }
+                            checked={ song.checked }
+                            change={ () => this.handleChange(song) }
+                            check={ song.checked }
+                            music={ song.previewUrl }
+                            id={ song.trackId }
+                          />
+                        )}
+                      </li>
+                    </div>
+                    <hr className="hr-favorites" />
+                  </div>
+                ))}
+              </ul>)}
+        </div>
       </div>
     );
   }

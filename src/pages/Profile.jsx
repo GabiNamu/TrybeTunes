@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import Loding from './Loding';
+import '../css/profile.css';
 
 class Profile extends Component {
   state = {
@@ -23,27 +24,34 @@ class Profile extends Component {
 
   render() {
     const { loading, userInfo } = this.state;
-    // if (loading === true) {
-    //   return <Loding />;
-    // }
     return (
-      <div data-testid="page-profile">
+      <div data-testid="page-profile" className="page-profile">
         <Header />
-        {loading && <Loding />}
         { userInfo !== ''
         && (
           <div>
-            <img
-              src={ userInfo.image }
-              alt={ userInfo.name }
-              data-testid="profile-image"
-            />
-            <Link to="/profile/edit">Editar perfil</Link>
-            <h3>{userInfo.name}</h3>
-            <p>{userInfo.email}</p>
-            <p>{userInfo.description}</p>
+            <div className="img-profile-container">
+              <img
+                className="img-profile"
+                src={ userInfo.image }
+                alt={ userInfo.name }
+                data-testid="profile-image"
+              />
+            </div>
+            <div className="info-profile-container">
+              <h3 className="title-profile">Nome</h3>
+              <h3 className="info-profile">{userInfo.name}</h3>
+              <p className="title-profile">Email</p>
+              <p className="info-profile">{userInfo.email}</p>
+              <p className="title-profile">Descrição</p>
+              <p className="info-profile">{userInfo.description}</p>
+              <Link to="/profile/edit" className="link-profile">Editar perfil</Link>
+            </div>
           </div>
         )}
+        <div className="loading-profile">
+          {loading && <Loding />}
+        </div>
       </div>
     );
   }

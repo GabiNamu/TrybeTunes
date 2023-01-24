@@ -78,34 +78,43 @@ class Album extends Component {
     return (
       <div data-testid="page-album" className="container-musics">
         <Header />
-        <h1 data-testid="artist-name">
-          { musics.length !== 0 && musics[0].artistName }
-        </h1>
-
-        <h3 data-testid="album-name">
-          { musics.length !== 0 && musics[0].collectionName }
-        </h3>
-        <ul>
-          {loading ? <Loding />
-            : (
-              musics.length !== 0
+        <div className="all-album">
+          <div className="title-album">
+            { musics.length !== 0
+             && <img src={ musics[0].artworkUrl100 } alt="album" className="img-album" />}
+            <div className="name-album">
+              <h1 data-testid="album-name" className="h1-album">
+                { musics.length !== 0 && musics[0].collectionName }
+              </h1>
+              <h3 data-testid="artist-name" className="h3-album">
+                { musics.length !== 0 && musics[0].artistName }
+              </h3>
+            </div>
+          </div>
+          <ul className="ul-album">
+            {loading ? <Loding />
+              : (
+                musics.length !== 0
               && musics.filter((music) => music.trackName).map((song) => (
                 <div key={ song.trackId }>
-
-                  <li className="li-album">
-                    <MusicCard
-                      song={ song }
-                      favorite={ favorite }
-                      change={ () => this.saveFavoriteSongs(song) }
-                      name={ song.trackName }
-                      check={ song.checked }
-                      music={ song.previewUrl }
-                      id={ song.trackId }
-                    />
-                  </li>
+                  <div className="musics-album">
+                    <li className="li-album">
+                      <MusicCard
+                        song={ song }
+                        favorite={ favorite }
+                        change={ () => this.saveFavoriteSongs(song) }
+                        name={ song.trackName }
+                        check={ song.checked }
+                        music={ song.previewUrl }
+                        id={ song.trackId }
+                      />
+                    </li>
+                  </div>
+                  <hr />
                 </div>
               )))}
-        </ul>
+          </ul>
+        </div>
       </div>
     );
   }

@@ -1,13 +1,14 @@
 .container-header {
   align-items: center;
-  background-color: rgb(21, 20, 20);
+  background-color: white;
   box-shadow: 0 0 4px rgba(172, 181, 200, 0.938);
-  color: white;
+  color: black;
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-around;
   width: 250px;
+  z-index: 1;
 }
 
 .title-header {
@@ -19,9 +20,14 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  height: 16px;
+  left: 93px;
   letter-spacing: 0.03em;
   line-height: 16px;
+  position: absolute;
   text-transform: capitalize;
+  top: 664px;
+  width: 83px;
 }
 
 .nav {
@@ -31,17 +37,38 @@
 }
 
 .link-header {
-  color: white;
+  background-color: #00d5e2;
+  border-radius: 30px;
+  box-shadow: -3px 4px 6px rgb(155, 155, 155);
+  color: black;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  height: 30px;
   letter-spacing: 0.03em;
   line-height: 16px;
   list-style: none;
+  padding-top: 20px;
+  text-align: center;
   text-decoration: none;
   text-transform: capitalize;
+  transition: 0.5s;
+  width: 114px;
 }
 
 .link-header:hover {
-  color: rgba(0, 59, 229, 0.898);
+  background-color: rgba(0, 59, 229, 0.898);
+}
+
+.img-header {
+  border-radius: 19.608px;
+  height: 40px;
+  left: 40px;
+  position: absolute;
+  top: 660px;
+  width: 40px;
+}
+
+.container-profile-header {
+  display: inline;
 }

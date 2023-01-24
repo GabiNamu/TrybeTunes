@@ -5,3 +5,35 @@
 .li-favorites {
   list-style: none;
 }
+
+.h1-ul {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100vw;
+}
+
+.container-h1 {
+  background-color: white;
+  box-shadow: 0 0 4px rgba(172, 181, 200, 0.938);
+  height: 200px;
+  margin: 0%;
+  position: absolute;
+  text-align: center;
+  width: 100vw;
+}
+
+.h1-favorites {
+  color: #3d495c;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-left: 210px;
+  margin-top: 80px;
+}
+
+.ul-favorites {
+  margin-left: 460px;
+  margin-top: 230px;
+  width: 700px;
+}

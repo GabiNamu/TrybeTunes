@@ -16,7 +16,6 @@ class MusicCard extends Component {
           htmlFor={ id }
           data-testid={ `checkbox-music-${id}` }
         >
-          Favorita
           <input
             type="checkbox"
             name="favorite"
@@ -24,6 +23,7 @@ class MusicCard extends Component {
             checked={ check }
             onChange={ change }
           />
+          Favorita
         </label>
       </div>
     );
