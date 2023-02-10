@@ -10,6 +10,15 @@ Trybetunes is an application capable of playing songs from the most varied bands
 - View the profile of the logged in person;
 - Edit the logged-in person's profile;
 
+<div align="center" display="inline">
+<img src="./src/img/login.png" alt="login" width="400px" heigth="450px">
+<img src="./src/img/search.png" alt="wallet" width="400px" heigth="450px">
+<img src="./src/img/album.png" alt="login" width="400px" heigth="450px">
+<img src="./src/img/favorites.png" alt="wallet" width="400px" heigth="450px">
+<img src="./src/img/profile.png" alt="login" width="400px" heigth="450px">
+<img src="./src/img/edit.png" alt="wallet" width="400px" heigth="450px">
+</div>
+
 ## How to use:
 - First clone the repository into your machine;
 
