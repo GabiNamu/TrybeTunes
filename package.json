@@ -5,7 +5,7 @@
   "engines": {
     "node": "16"
   },
-  "homepage": "https://username.github.io/app-toot-name",
+  "homepage": "https://gabinamu.github.io/trybetunes",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
