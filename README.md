@@ -13,10 +13,10 @@ Trybetunes is an application capable of playing songs from the most varied bands
 <div align="center" display="inline">
 <img src="./src/img/login.png" alt="login" width="400px" height="250px">
 <img src="./src/img/search.png" alt="wallet" width="400px" height="250px">
-<img src="./src/img/album.png" alt="login" width="400px" heigth="450px">
-<img src="./src/img/favorites.png" alt="wallet" width="400px" heigth="450px">
-<img src="./src/img/profile.png" alt="login" width="400px" heigth="450px">
-<img src="./src/img/edit.png" alt="wallet" width="400px" heigth="450px">
+<img src="./src/img/album.png" alt="login" width="400px">
+<img src="./src/img/favorites.png" alt="wallet" width="400px">
+<img src="./src/img/profile.png" alt="login" width="400px">
+<img src="./src/img/edit.png" alt="wallet" width="400px">
 </div>
 
 ## How to use:
