@@ -23,12 +23,12 @@ Trybetunes is an application capable of playing songs from the most varied bands
 - First clone the repository into your machine;
 
 ```
- git clone git@github.com:GabiNamu/trybewallet.git
+git@github.com:GabiNamu/TrybeTunes.git
 ```
 - Go to the project directory;
 
 ```
- cd recipes
+cd TrybeTunes
 ```
 
 - Install dependencies;
