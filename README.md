@@ -23,7 +23,7 @@ Trybetunes is an application capable of playing songs from the most varied bands
 - First clone the repository into your machine;
 
 ```
-git@github.com:GabiNamu/TrybeTunes.git
+git clone git@github.com:GabiNamu/TrybeTunes.git
 ```
 - Go to the project directory;
 
