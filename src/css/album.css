@@ -69,3 +69,28 @@
   font-weight: 400;
   line-height: 150%;
 }
+
+@media screen and ( max-width : 1150px ) {
+
+  /* .musics-album {
+    margin-left: -600px;
+
+    /* width: 100vw; */
+
+  .img-album {
+    left: 150px;
+    top: 150px;
+  }
+
+  .ul-album {
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 450px;
+  }
+
+  .name-album {
+    left: 420px;
+    position: absolute;
+    top: 200px;
+  }
+}

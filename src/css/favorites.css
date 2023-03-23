@@ -37,3 +37,18 @@
   margin-top: 230px;
   width: 700px;
 }
+
+@media screen and ( max-width : 1150px ) {
+
+  .ul-favorites {
+    margin: auto;
+    margin-top: 230px;
+
+    /* width: 700px; */
+  }
+
+  .h1-favorites {
+    margin: auto;
+    margin-top: 100px;
+  }
+}

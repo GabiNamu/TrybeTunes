@@ -33,7 +33,7 @@ class Header extends Component {
     return (
       <header data-testid="header-component" className="container-header">
         <Link to="/">
-          <img src={ logo } alt="logo" />
+          <img src={ logo } alt="logo" className="logo-header" />
         </Link>
         <nav className="nav">
           <Link

@@ -28,8 +28,7 @@ body {
   font-size: 40px;
   height: 450px;
   justify-content: center;
-  margin-left: 320px;
-  margin-top: 165px;
+  margin: auto;
   width: 750px;
 }
 
@@ -62,4 +61,20 @@ body {
   border-radius: 100px;
   height: 40px;
   width: 400px;
+}
+
+@media screen and ( max-width : 800px ) {
+
+  .container {
+    width: 80%;
+  }
+
+  .input {
+    margin: auto;
+    width: 230px;
+  }
+
+  .button {
+    width: 230px;
+  }
 }

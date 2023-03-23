@@ -16,7 +16,7 @@
   font-size: 30px;
 }
 
-.user-header {
+/* .user-header {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -28,7 +28,7 @@
   text-transform: capitalize;
   top: 664px;
   width: 83px;
-}
+} */
 
 .nav {
   display: flex;
@@ -63,12 +63,41 @@
 .img-header {
   border-radius: 19.608px;
   height: 40px;
-  left: 40px;
+
+  /* left: 40px;
   position: absolute;
-  top: 660px;
+  top: 660px; */
   width: 40px;
 }
 
 .container-profile-header {
   display: inline;
+}
+
+@media screen and ( max-width : 1150px ) {
+
+  .container-header {
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    margin-top: 5px;
+    position: absolute;
+    width: 100vw;
+  }
+
+  .nav {
+    flex-direction: row;
+  }
+
+  .link-header {
+    height: 10px;
+    padding: 10px;
+    width: 114px;
+  }
+
+  .logo-header {
+    width: 150px;
+  }
 }

@@ -65,3 +65,22 @@
   top: 458.04px;
   width: 321px;
 }
+
+@media screen and ( max-width : 1150px ) {
+
+  .info-profile-container {
+    margin-left: 400px;
+  }
+
+  .img-profile-container {
+    left: -600px;
+  }
+
+  .img-profile {
+    left: 150px;
+  }
+
+  .loading-profile {
+    left: 250px;
+  }
+}
