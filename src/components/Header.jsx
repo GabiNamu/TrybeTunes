@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
+import { MdFavorite } from 'react-icons/md';
+import { CgProfile } from 'react-icons/cg';
 import Loding from '../pages/Loding';
 import { getUser } from '../services/userAPI';
 import '../css/header.css';
@@ -41,21 +44,21 @@ class Header extends Component {
             data-testid="link-to-search"
             className="link-header"
           >
-            Pesquisa
+            <FaSearch className="icon" />
           </Link>
           <Link
             to="/favorites"
             data-testid="link-to-favorites"
             className="link-header"
           >
-            Favoritas
+            <MdFavorite className="icon" />
           </Link>
           <Link
             to="/profile"
             data-testid="link-to-profile"
             className="link-header"
           >
-            Perfil
+            <CgProfile className="icon" />
           </Link>
         </nav>
         <div className="container-profile-header">

@@ -61,7 +61,7 @@ class Search extends Component {
                   name="artist"
                   className="search-input"
                   onChange={ this.handleChange }
-                  placeholder="NOME DO ARTISTA"
+                  placeholder="Escreva o nome do artista"
                   value={ artist }
                 />
                 <button

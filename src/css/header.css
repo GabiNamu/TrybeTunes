@@ -16,19 +16,22 @@
   font-size: 30px;
 }
 
-/* .user-header {
+.user-header {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   height: 16px;
-  left: 93px;
+
+  /* left: 93px; */
   letter-spacing: 0.03em;
   line-height: 16px;
-  position: absolute;
+
+  /* position: absolute; */
   text-transform: capitalize;
-  top: 664px;
+
+  /* top: 664px; */
   width: 83px;
-} */
+}
 
 .nav {
   display: flex;
@@ -71,7 +74,11 @@
 }
 
 .container-profile-header {
-  display: inline;
+  display: flex;
+}
+
+.icon {
+  color: white;
 }
 
 @media screen and ( max-width : 1150px ) {
@@ -99,5 +106,18 @@
 
   .logo-header {
     width: 150px;
+  }
+}
+
+@media screen and ( max-width : 720px ) {
+
+  .link-header {
+    display: flex;
+    flex-direction: column;
+    width: 20px;
+  }
+
+  .logo-header {
+    width: 80px;
   }
 }

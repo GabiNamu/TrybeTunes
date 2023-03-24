@@ -55,7 +55,7 @@
   height: 200px;
   left: 250px;
   top: 0;
-  width: 1200px;
+  width: 100vw;
 }
 
 .loading-profile {
@@ -82,5 +82,23 @@
 
   .loading-profile {
     left: 250px;
+  }
+}
+
+@media screen and ( max-width : 720px ) {
+
+  .img-profile-container {
+    left: -700px;
+  }
+
+  .img-profile {
+    height: 180px;
+    left: 30px;
+    width: 180px;
+  }
+
+  .info-profile-container {
+    margin-left: 180px;
+    margin-top: 100px;
   }
 }

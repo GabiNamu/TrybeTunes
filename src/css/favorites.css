@@ -52,3 +52,16 @@
     margin-top: 100px;
   }
 }
+
+@media screen and ( max-width : 720px ) {
+
+  .ul-favorites {
+    margin-top: 200px;
+    padding: 20px;
+    width: 80%;
+  }
+
+  .li-album {
+    padding: 5px;
+  }
+}

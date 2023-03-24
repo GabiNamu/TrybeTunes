@@ -1,11 +1,11 @@
 {
   "name": "trybetunes",
+  "homepage": "https://gabinamu.github.io/TrybeTunes",
   "version": "1.0.1",
   "private": true,
   "engines": {
     "node": "16"
   },
-  "homepage": "https://gabinamu.github.io/trybetunes",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -13,6 +13,7 @@
     "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
     "react-router-dom": "^5.3.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"

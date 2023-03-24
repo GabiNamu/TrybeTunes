@@ -22,7 +22,7 @@
   height: 200px;
   left: 250px;
   top: 0;
-  width: 1200px;
+  width: 100vw;
 }
 
 .input-img-profileEdit {
@@ -84,4 +84,24 @@
   height: 40px;
   margin-top: 20px;
   width: 152px;
+}
+
+@media screen and ( max-width : 720px ) {
+
+  .img-profileEdit {
+    height: 180px;
+    margin-left: 30px;
+    margin-top: 120px;
+    width: 180px;
+  }
+
+  .input-img-profileEdit {
+    margin-left: 30px;
+    margin-top: 120px;
+  }
+
+  .input-profileEdit {
+    left: -380px;
+    margin-top: 380px;
+  }
 }
