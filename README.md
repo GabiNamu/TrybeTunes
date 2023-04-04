@@ -1,4 +1,4 @@
-# TrybeTunes
+# TrybeTunes / [DEMO](https://gabinamu.github.io/TrybeTunes/#/)
 Trybetunes is an application capable of playing songs from the most varied bands and artists, creating a list of favorite songs and editing the profile of the logged-in user. This application is capable of:
 - Login;
 - Search for a band or artist;
