@@ -70,7 +70,6 @@ class Favorites extends Component {
                         )}
                       </li>
                     </div>
-                    <hr className="hr-favorites" />
                   </div>
                 ))}
               </ul>)}

@@ -104,4 +104,8 @@
     left: -380px;
     margin-top: 380px;
   }
+
+  .button-save-profileEdit {
+    margin-bottom: 20px;
+  }
 }

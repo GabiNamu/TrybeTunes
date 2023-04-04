@@ -117,7 +117,25 @@
     width: 20px;
   }
 
+  .img-header {
+    margin-right: 5px;
+  }
+
+  .nav {
+    flex-direction: row;
+    margin-left: 10px;
+  }
+
+  .container-profile-header {
+    margin-left: 10px;
+  }
+
   .logo-header {
+    margin-left: 10px;
     width: 80px;
+  }
+
+  .container-header {
+    margin-left: 10px;
   }
 }

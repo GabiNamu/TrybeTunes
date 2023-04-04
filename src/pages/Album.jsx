@@ -110,7 +110,6 @@ class Album extends Component {
                       />
                     </li>
                   </div>
-                  <hr />
                 </div>
               )))}
           </ul>
