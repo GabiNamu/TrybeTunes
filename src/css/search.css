@@ -38,7 +38,7 @@
 .form-search {
   display: flex;
   gap: 10px;
-  left: 300px;
+  left: 40%;
   position: absolute;
   top: 97px;
 }

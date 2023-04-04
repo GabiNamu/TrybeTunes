@@ -130,6 +130,10 @@
     margin-left: 10px;
   }
 
+  .user-header {
+    font-size: 12px;
+  }
+
   .logo-header {
     margin-left: 10px;
     width: 80px;

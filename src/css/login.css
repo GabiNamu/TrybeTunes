@@ -61,7 +61,14 @@ body {
   border-radius: 100px;
   color: white;
   height: 40px;
+  left: 10px;
+  margin: auto;
   width: 400px;
+}
+
+.button:disabled {
+  background: gray;
+  color: rgb(151, 147, 147);
 }
 
 @media screen and ( max-width : 800px ) {
@@ -77,6 +84,8 @@ body {
 
   .button {
     color: white;
+    margin: auto;
+    padding: 10px;
     width: 240px;
   }
 }

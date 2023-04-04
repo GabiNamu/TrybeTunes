@@ -56,10 +56,10 @@
 @media screen and ( max-width : 720px ) {
 
   .ul-favorites {
-    margin-left: 40px;
+    margin-left: 15px;
     margin-top: 200px;
     padding: 20px;
-    width: 80%;
+    width: 88%;
   }
 
   .li-album {
