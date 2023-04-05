@@ -43,6 +43,7 @@ npm start
 ## Main technologies used:
 - React;
 - JavaScript;
+- Api-requests;
 - Redux;
 - CSS;
 
