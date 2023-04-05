@@ -41,10 +41,9 @@ npm install
 npm start
 ```
 ## Main technologies used:
-- React;
-- React Router;
-- API request;
-- JavaScript;
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
 - Css;
 
 ## Collaboration:
